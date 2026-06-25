@@ -3,11 +3,6 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { GaleriaCarrossel } from "@/components/home/GaleriaCarrossel"
 import { 
-  Scissors, 
-  Sparkles, 
-  Paintbrush, 
-  Eye, 
-  Flower2,
   ChevronRight,
   Clock,
   Wifi,
@@ -15,14 +10,6 @@ import {
   Users,
   Star
 } from "lucide-react"
-
-const categorias = [
-  { nome: "Corte & Finalização", icone: Scissors, href: "/servicos" },
-  { nome: "Química & Tratamento", icone: Sparkles, href: "/servicos" },
-  { nome: "Manicure & Pedicure", icone: Paintbrush, href: "/servicos" },
-  { nome: "Alongamento", icone: Flower2, href: "/servicos" },
-  { nome: "Olhar & Face", icone: Eye, href: "/servicos" },
-]
 
 const servicosDestaque = [
   {

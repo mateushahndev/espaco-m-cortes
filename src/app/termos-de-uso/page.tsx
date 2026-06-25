@@ -31,7 +31,7 @@ export default function TermosUsoPage() {
 
           <div className="bg-surface border border-border rounded-3xl p-8">
             <p>
-              Bem-vinda ao site do <strong className="text-foreground">Espaço M Concept</strong>. 
+              Bem-vinda ao site do <strong className="text-foreground">Espaço M Cortes</strong>. 
               Ao acessar e utilizar este site, você concorda com os presentes Termos de Uso. 
               Pedimos a leitura atenta de todas as disposições.
             </p>
@@ -44,11 +44,11 @@ export default function TermosUsoPage() {
               </h2>
               <ul className="list-disc pl-5 space-y-1">
                 <li><strong className="text-foreground">Site:</strong> conjunto de páginas web 
-                hospedadas sob o domínio do Espaço M Concept;</li>
+                hospedadas sob o domínio do Espaço M Cortes;</li>
                 <li><strong className="text-foreground">Usuária:</strong> toda pessoa física que 
                 acessa e utiliza o site;</li>
                 <li><strong className="text-foreground">Serviços:</strong> todos os tratamentos 
-                de beleza e bem-estar ofertados presencialmente no Espaço M Concept.</li>
+                de beleza e bem-estar ofertados presencialmente no Espaço M Cortes.</li>
               </ul>
             </div>
 
@@ -83,7 +83,7 @@ export default function TermosUsoPage() {
               <p>
                 Todo o conteúdo do site — incluindo textos, imagens, logotipos, ícones, 
                 layout e código-fonte — é de propriedade exclusiva do{" "}
-                <strong className="text-foreground">Espaço M Concept</strong> ou de terceiros 
+                <strong className="text-foreground">Espaço M Cortes</strong> ou de terceiros 
                 licenciadores. É proibida a reprodução total ou parcial sem autorização 
                 prévia por escrito.
               </p>
@@ -94,7 +94,7 @@ export default function TermosUsoPage() {
                 5. Limitação de Responsabilidade
               </h2>
               <p>
-                O Espaço M Concept se empenha em manter as informações do site precisas e 
+                O Espaço M Cortes se empenha em manter as informações do site precisas e 
                 atualizadas, mas não garante ausência de erros ou omissões. O uso do site 
                 é por conta e risco da usuária. Não nos responsabilizamos por eventuais 
                 indisponibilidades técnicas ou falhas de terceiros (hospedagem, conexão, 
@@ -123,7 +123,7 @@ export default function TermosUsoPage() {
                 <a href="/politica-de-cancelamento" className="text-primary hover:text-primary-light underline">
                   Política de Cancelamento
                 </a>{" "}
-                do Espaço M Concept, que integra estes Termos de Uso.
+                do Espaço M Cortes, que integra estes Termos de Uso.
               </p>
             </div>
 
@@ -157,8 +157,8 @@ export default function TermosUsoPage() {
               </h2>
               <p>
                 Dúvidas sobre estes Termos de Uso podem ser esclarecidas pelo WhatsApp:{" "}
-                <strong className="text-foreground">(XX) XXXXX-XXXX</strong>{" "}
-                ou presencialmente no Espaço M Concept, Morada do Ouro, Cuiabá - MT.
+                <strong className="text-foreground">(11) 99999-9999</strong>{" "}
+                ou presencialmente no Espaço M Cortes, Avenida da Prata, Cuiabá - MT.
               </p>
             </div>
           </div>

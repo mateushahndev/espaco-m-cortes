@@ -31,6 +31,7 @@ const servicosDestaque = [
     preco: "R$ 100",
     duracao: "1h",
     categoria: "Corte & Finalização",
+    slug: "Design de Corte Feminino",
   },
   {
     nome: "Escova Clássica",
@@ -38,6 +39,7 @@ const servicosDestaque = [
     preco: "R$ 60",
     duracao: "50min",
     categoria: "Corte & Finalização",
+    slug: "Escova Clássica",
   },
   {
     nome: "Manicure Tradicional",
@@ -45,6 +47,7 @@ const servicosDestaque = [
     preco: "R$ 35",
     duracao: "1h",
     categoria: "Manicure & Pedicure",
+    slug: "Manicure Tradicional",
   },
   {
     nome: "Mechas/Luzes",
@@ -52,6 +55,7 @@ const servicosDestaque = [
     preco: "R$ 250",
     duracao: "4h",
     categoria: "Química & Tratamento",
+    slug: "Mechas/Luzes",
   },
   {
     nome: "Extensão de Cílios",
@@ -59,6 +63,7 @@ const servicosDestaque = [
     preco: "R$ 150",
     duracao: "1h",
     categoria: "Olhar & Face",
+    slug: "Extensão de Cílios",
   },
   {
     nome: "Maquiagem Completa",
@@ -66,6 +71,7 @@ const servicosDestaque = [
     preco: "R$ 200",
     duracao: "1h",
     categoria: "Maquiagem",
+    slug: "Maquiagem Completa",
   },
 ]
 
@@ -77,14 +83,14 @@ const diferenciais = [
 ]
 
 const imagensGaleria = [
-  { src: "/images/galeria/corte-feminino.webp", alt: "Corte feminino personalizado no Espaço M Concept" },
-  { src: "/images/galeria/escova-modelada.webp", alt: "Escova modelada com babyliss — cachos definidos" },
-  { src: "/images/galeria/manicure-unhas.webp", alt: "Manicure tradicional com esmaltação impecável" },
-  { src: "/images/galeria/mechas-luzes.webp", alt: "Mechas e luzes iluminando os cabelos" },
-  { src: "/images/galeria/cilios-extensao.webp", alt: "Extensão de cílios volume russo" },
-  { src: "/images/galeria/maquiagem-noiva.webp", alt: "Maquiagem para noiva — make elegante" },
-  { src: "/images/galeria/spa-pes.webp", alt: "Spa dos pés relaxante no Espaço M Concept" },
-  { src: "/images/galeria/sobrancelha-design.webp", alt: "Design de sobrancelha com refectocil" },
+  { src: "/home/galeria/cabelo-feminino.webp", alt: "Corte feminino personalizado no Espaço M Cortes" },
+  { src: "/home/galeria/escova-modelada.webp", alt: "Escova modelada com babyliss — cachos definidos" },
+  { src: "/home/galeria/manicure-unhas.webp", alt: "Manicure tradicional com esmaltação impecável" },
+  { src: "/home/galeria/cilios-extensao.webp", alt: "Extensão de cílios volume russo" },
+  { src: "/home/galeria/maquiagem-noiva.webp", alt: "Maquiagem para noiva — make elegante" },
+  { src: "/home/galeria/mechas-luzes.webp", alt: "Mechas e luzes iluminando os cabelos" },
+  { src: "/home/galeria/spa-pes.webp", alt: "Spa dos pés relaxante no Espaço M Cortes" },
+  { src: "/home/galeria/sobrancelha-design.webp", alt: "Design de sobrancelha com refectocil" },
 ]
 
 export default function Home() {
@@ -98,7 +104,7 @@ export default function Home() {
             {/* Texto — ocupa 3/5 */}
             <div className="lg:col-span-3 space-y-6">
               <Badge className="bg-primary/10 text-primary border-primary/20 rounded-full px-4 py-1.5">
-                ✨ Salão Premium em Morada do Ouro
+                ✨ Salão Premium em Avenida da Prata
               </Badge>
               <h1 className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-tight text-balance">
                 Realce sua beleza em um espaço pensado para{" "}
@@ -106,11 +112,13 @@ export default function Home() {
               </h1>
               <p className="text-lg text-muted max-w-xl">
                 Corte, química, manicure, cílios, maquiagem e muito mais. 
-                Ambiente acolhedor com equipe qualificada no coração da Morada do Ouro.
+                Ambiente acolhedor com equipe qualificada no coração da Avenida da Prata.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Button className="bg-primary hover:bg-primary-light text-white rounded-full px-8 py-6 text-base">
-                  Agendar no WhatsApp
+                  <a href="https://wa.me/5511999999999" target="_blank">
+                    Agendar no WhatsApp  
+                  </a>
                 </Button>
                 <Button variant="outline" className="rounded-full px-8 py-6 text-base border-border text-foreground hover:bg-surface" asChild>
                   <Link href="/servicos">
@@ -121,18 +129,18 @@ export default function Home() {
               </div>
             </div>
 
-{/* Ilustração — ocupa 2/5, alinhada à direita */}
-<div className="hidden lg:flex lg:col-span-2 justify-end items-center">
-  {/* eslint-disable-next-line @next/next/no-img-element */}
-  <img
-    src="/home/hero-moca.png"
-    alt="Ilustração de mulher com cabelos esvoaçantes representando beleza e transformação"
-    width={600}
-    height={600}
-    className="w-[120%] max-w-[550px] h-auto -mr-8"
-    loading="eager"
-  />
-</div>
+            {/* Ilustração — ocupa 2/5, alinhada à direita */}
+            <div className="hidden lg:flex lg:col-span-2 justify-end items-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/home/hero-moca.png"
+                alt="Ilustração de mulher com cabelos esvoaçantes representando beleza e transformação"
+                width={600}
+                height={600}
+                className="w-[120%] max-w-[550px] h-auto -mr-8"
+                loading="eager"
+              />
+            </div>
 
           </div>
         </div>
@@ -156,34 +164,44 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicosDestaque.map((servico) => (
-            <div
-              key={servico.nome}
-              className="bg-surface border border-border rounded-2xl p-6 hover:shadow-md hover:border-primary/20 transition-all group"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <Badge variant="secondary" className="text-xs font-normal">
-                  {servico.categoria}
-                </Badge>
-                <Badge className="bg-background text-muted border-border text-xs font-normal">
-                  <Clock className="w-3 h-3 mr-1" />
-                  {servico.duracao}
-                </Badge>
-              </div>
-              <h3 className="font-playfair text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                {servico.nome}
-              </h3>
-              <p className="text-sm text-muted mb-4 leading-relaxed">
-                {servico.descricao}
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <span className="text-sm text-muted">A partir de</span>
-                <span className="font-playfair text-xl font-semibold text-primary">
-                  {servico.preco}
-                </span>
-              </div>
-            </div>
-          ))}
+          {servicosDestaque.map((servico) => {
+            const mensagem = encodeURIComponent(
+              `Olá! Vim do site e quero agendar: ${servico.slug}`
+            )
+            const linkWhatsApp = `https://wa.me/5511999999999?text=${mensagem}`
+
+            return (
+              <a
+                key={servico.nome}
+                href={linkWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-surface border border-border rounded-2xl p-6 hover:shadow-md hover:border-primary/20 transition-all group block"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <Badge variant="secondary" className="text-xs font-normal">
+                    {servico.categoria}
+                  </Badge>
+                  <Badge className="bg-background text-muted border-border text-xs font-normal">
+                    <Clock className="w-3 h-3 mr-1" />
+                    {servico.duracao}
+                  </Badge>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {servico.nome}
+                </h3>
+                <p className="text-sm text-muted mb-4 leading-relaxed">
+                  {servico.descricao}
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-border">
+                  <span className="text-sm text-muted">A partir de</span>
+                  <span className="font-playfair text-xl font-semibold text-primary">
+                    {servico.preco}
+                  </span>
+                </div>
+              </a>
+            )
+          })}
         </div>
 
         <div className="text-center mt-10">
@@ -240,7 +258,7 @@ export default function Home() {
               <span className="text-primary">autoestima</span>
             </h2>
             <p className="text-muted leading-relaxed">
-              O Espaço M Concept nasceu no coração da Morada do Ouro com uma missão clara: 
+              O Espaço M Cortes nasceu no coração da Avenida da Prata com uma missão clara: 
               oferecer uma experiência completa de beleza e bem-estar. 
             </p>
             <p className="text-muted leading-relaxed">
@@ -265,7 +283,7 @@ export default function Home() {
                 &ldquo;O melhor salão da região! Ambiente incrível e profissionais 
                 super atenciosos. Saí me sentindo maravilhosa.&rdquo;
               </p>
-              <p className="text-sm text-muted">— Cliente Espaço M Concept</p>
+              <p className="text-sm text-muted">— Cliente Espaço M Cortes</p>
             </div>
           </div>
         </div>
@@ -281,7 +299,9 @@ export default function Home() {
             Agende seu horário agora mesmo pelo WhatsApp. Resposta rápida, sem burocracia.
           </p>
           <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-8 py-6 text-base">
-            Agendar no WhatsApp
+            <a href="https://wa.me/5511999999999" target="_blank">
+              Agendar no WhatsApp
+            </a>
           </Button>
         </div>
       </section>

@@ -1,14 +1,14 @@
 // 📁 lib/chat-config.ts
-// Espaço M Concept — Dados do Chatbot
+// Espaço M Cortes — Dados do Chatbot
 
 export const chatConfig = {
   // DADOS DA EMPRESA
   company: {
-    name: 'Espaço M Concept',
-    email: 'contato@espacomconcept.com.br',
-    phone: '(XX) XXXXX-XXXX',
-    whatsapp: '(XX) XXXXX-XXXX',
-    address: 'Morada do Ouro',
+    name: 'Espaço M Cortes',
+    email: 'contato@espacomcortes.vercel.app',
+    phone: '(11) 99999-9999',
+    whatsapp: '(11) 99999-9999',
+    address: 'Avenida da Prata',
     city: 'Cuiabá',
     state: 'MT',
     cnpj: 'XX.XXX.XXX/XXXX-XX',
@@ -38,10 +38,10 @@ export const chatConfig = {
   // RESPOSTAS PRONTAS
   responses: {
     about:
-      'O Espaço M Concept é um salão de beleza premium localizado no coração da Morada do Ouro, Cuiabá-MT. Oferecemos uma experiência completa de beleza e bem-estar com equipe qualificada e ambiente acolhedor. Trabalhamos com corte, química, manicure, alongamento de unhas, cílios, maquiagem, depilação e spa dos pés.',
-    contact: 'WhatsApp: (XX) XXXXX-XXXX | Endereço: Morada do Ouro, Cuiabá - MT',
+      'O Espaço M Cortes é um salão de beleza premium localizado no coração da Avenida da Prata, Cuiabá-MT. Oferecemos uma experiência completa de beleza e bem-estar com equipe qualificada e ambiente acolhedor. Trabalhamos com corte, química, manicure, alongamento de unhas, cílios, maquiagem, depilação e spa dos pés.',
+    contact: 'WhatsApp: (11) 99999-9999 | Endereço: Avenida da Prata, Cuiabá - MT',
     schedule: 'Atendemos de Segunda a Sábado. Os horários variam conforme disponibilidade de agenda. Consulte pelo WhatsApp.',
-    location: 'Estamos na Morada do Ouro, Cuiabá - MT. Um ambiente acolhedor com Wi-Fi, TV, bar e lanchonete.',
+    location: 'Estamos na Avenida da Prata, Cuiabá - MT. Um ambiente acolhedor com Wi-Fi, TV, bar e lanchonete.',
     pricing: 'Nossos preços variam conforme o serviço e comprimento do cabelo (para químicas e finalizações). Temos serviços a partir de R$ 15 (depilação simples) até alongamentos e mechas premium. Consulte o catálogo completo no site ou chame no WhatsApp.',
   },
 

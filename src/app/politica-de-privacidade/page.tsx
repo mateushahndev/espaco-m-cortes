@@ -32,7 +32,7 @@ export default function PoliticaPrivacidadePage() {
           <div className="bg-surface border border-border rounded-3xl p-8">
             <p>
               A sua privacidade é importante para nós. Esta política descreve como o 
-              <strong className="text-foreground"> Espaço M Concept</strong> coleta, 
+              <strong className="text-foreground"> Espaço M Cortes</strong> coleta, 
               utiliza, armazena e protege os seus dados pessoais, em conformidade com a 
               <strong className="text-foreground"> Lei Geral de Proteção de Dados 
               (Lei nº 13.709/2018 — LGPD)</strong>.
@@ -77,7 +77,7 @@ export default function PoliticaPrivacidadePage() {
                 3. Compartilhamento de Dados
               </h2>
               <p>
-                O <strong className="text-foreground">Espaço M Concept</strong> não vende, 
+                O <strong className="text-foreground">Espaço M Cortes</strong> não vende, 
                 aluga ou compartilha seus dados pessoais com terceiros para fins comerciais. 
                 O compartilhamento ocorre apenas:
               </p>
@@ -144,8 +144,8 @@ export default function PoliticaPrivacidadePage() {
               </h2>
               <p>
                 Para exercer seus direitos ou esclarecer dúvidas sobre esta política, 
-                entre em contato pelo WhatsApp: <strong className="text-foreground">(XX) XXXXX-XXXX</strong>{" "}
-                ou presencialmente no Espaço M Concept, Morada do Ouro, Cuiabá - MT.
+                entre em contato pelo WhatsApp: <strong className="text-foreground">(11) 99999-9999</strong>{" "}
+                ou presencialmente no Espaço M Cortes, Avenida da Prata, Cuiabá - MT.
               </p>
             </div>
           </div>

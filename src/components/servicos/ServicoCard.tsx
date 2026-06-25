@@ -7,7 +7,7 @@ import { Clock, ChevronDown, MessageCircle } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 
-const WHATSAPP_NUMERO = "55XXXXXXXXXXX"
+const WHATSAPP_NUMERO = "5511999999999"
 
 export function ServicoCard({ servico }: { servico: Servico }) {
   const [expandido, setExpandido] = useState(false)

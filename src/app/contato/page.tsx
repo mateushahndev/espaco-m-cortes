@@ -46,7 +46,7 @@ export default function ContatoPage() {
               Contato
             </h1>
             <p className="text-muted max-w-lg mx-auto">
-              Estamos no coração da Morada do Ouro. Venha nos visitar ou agende pelo WhatsApp.
+              Estamos no coração da Avenida da Prata. Venha nos visitar ou agende pelo WhatsApp.
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function ContatoPage() {
               Endereço
             </h3>
             <p className="text-muted text-sm leading-relaxed">
-              Morada do Ouro
+              Avenida da Prata
               <br />
               Cuiabá - MT
             </p>
@@ -83,7 +83,7 @@ export default function ContatoPage() {
               Agende seu horário agora mesmo
             </p>
             <Button className="bg-white text-primary hover:bg-white/90 rounded-full px-6 py-2.5 text-sm w-full" asChild>
-              <Link href="https://wa.me/55XXXXXXXXXXX" target="_blank">
+              <Link href="https://wa.me/5511999999999" target="_blank">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Chamar no WhatsApp
               </Link>

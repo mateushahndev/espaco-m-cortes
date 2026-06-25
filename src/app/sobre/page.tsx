@@ -23,7 +23,7 @@ const valores = [
   {
     icone: Star,
     titulo: "Visão",
-    descricao: "Ser referência em beleza e bem-estar na Morada do Ouro, reconhecida pela excelência no atendimento e resultados que transformam.",
+    descricao: "Ser referência em beleza e bem-estar na Avenida da Prata, reconhecida pela excelência no atendimento e resultados que transformam.",
   },
   {
     icone: Users,
@@ -52,10 +52,10 @@ export default function SobrePage() {
               Nossa História
             </Badge>
             <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground">
-              Sobre o Espaço M Concept
+              Sobre o Espaço M Cortes
             </h1>
             <p className="text-muted max-w-lg mx-auto">
-              Um espaço dedicado à beleza e bem-estar no coração da Morada do Ouro.
+              Um espaço dedicado à beleza e bem-estar no coração da Avenida da Prata.
             </p>
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function SobrePage() {
               <span className="text-primary">você se sentir em casa</span>
             </h2>
             <p className="text-muted leading-relaxed">
-              O Espaço M Concept nasceu no coração da Morada do Ouro com uma missão clara: 
+              O Espaço M Cortes nasceu no coração da Avenida da Prata com uma missão clara: 
               oferecer uma experiência completa de beleza e bem-estar que vai além dos serviços tradicionais.
             </p>
             <p className="text-muted leading-relaxed">
@@ -94,7 +94,7 @@ export default function SobrePage() {
                 &ldquo;Ambiente incrível e profissionais super atenciosos. Saí me sentindo 
                 maravilhosa. É o melhor salão da região, sem dúvida!&rdquo;
               </blockquote>
-              <p className="text-sm text-muted">— Cliente fiel do Espaço M Concept</p>
+              <p className="text-sm text-muted">— Cliente fiel do Espaço M Cortes</p>
             </div>
           </div>
         </div>

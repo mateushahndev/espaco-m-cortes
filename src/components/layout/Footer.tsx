@@ -34,11 +34,11 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <Scissors className="w-6 h-6 text-primary" />
               <span className="font-playfair text-lg font-semibold text-foreground">
-                Espaço M Concept
+                Espaço M Cortes
               </span>
             </div>
             <p className="text-sm text-muted leading-relaxed">
-              Um espaço dedicado à beleza e bem-estar no coração da Morada do Ouro. 
+              Um espaço dedicado à beleza e bem-estar no coração da Avenida da Prata. 
               Experiência completa para realçar sua autoestima.
             </p>
           </div>
@@ -90,13 +90,13 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-muted">
-                  Morada do Ouro, Cuiabá - MT
+                  Avenida da Prata, Cuiabá - MT
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-muted">
-                  WhatsApp: (XX) XXXXX-XXXX
+                  WhatsApp: (11) 99999-9999
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -114,7 +114,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-muted">
-              © {new Date().getFullYear()} Espaço M Concept. Todos os direitos reservados.
+              © {new Date().getFullYear()} Espaço M Cortes. Todos os direitos reservados.
             </p>
             <div className="flex gap-6">
               {footerLinks.legal.map((link) => (

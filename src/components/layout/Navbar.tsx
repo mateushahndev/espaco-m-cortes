@@ -23,7 +23,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <Scissors className="w-7 h-7 text-primary group-hover:rotate-12 transition-transform" />
             <span className="font-playfair text-xl font-semibold text-foreground tracking-tight">
-              Espaço M Concept
+              Espaço M Cortes
             </span>
           </Link>
 
@@ -39,7 +39,9 @@ export function Navbar() {
               </Link>
             ))}
             <Button className="bg-primary hover:bg-primary-light text-white rounded-full px-6">
-              Agendar no WhatsApp
+              <a href="https://wa.me/5511999999999" target="_blank">
+                Agendar no WhatsApp
+              </a>
             </Button>
           </nav>
 

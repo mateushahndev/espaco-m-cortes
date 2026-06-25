@@ -36,7 +36,7 @@ export default function PoliticaCancelamentoPage() {
               Olá, querida cliente!
             </p>
             <p className="text-muted leading-relaxed">
-              Agradecemos por escolher o <strong className="text-foreground">Espaço M Concept</strong>. 
+              Agradecemos por escolher o <strong className="text-foreground">Espaço M Cortes</strong>. 
               Para garantirmos que você tenha sempre o melhor atendimento, pedimos atenção 
               à nossa política de cancelamento:
             </p>
@@ -104,13 +104,13 @@ export default function PoliticaCancelamentoPage() {
             <p className="font-playfair text-foreground font-medium">
               Com carinho,
               <br />
-              Equipe Espaço M Concept
+              Equipe Espaço M Cortes
             </p>
           </div>
 
           <div className="text-center pt-4">
             <Button className="bg-primary hover:bg-primary-light text-white rounded-full px-8 py-6" asChild>
-              <Link href="https://wa.me/55XXXXXXXXXXX" target="_blank">
+              <Link href="https://wa.me/5511999999999" target="_blank">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Falar no WhatsApp
               </Link>

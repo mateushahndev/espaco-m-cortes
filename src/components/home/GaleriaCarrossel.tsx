@@ -28,7 +28,7 @@ export function GaleriaCarrossel({ imagens }: Props) {
                 height={240}
                 className="w-full h-[200px] sm:h-[240px] object-cover block"
                 // Garante que o browser trate como crítica
-                // @ts-ignore
+                // @ts-expect-error - fetchpriority é suportado por todos os browsers modernos
                 fetchpriority="high"
               />
             </div>

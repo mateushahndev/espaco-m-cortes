@@ -19,7 +19,7 @@ const config: Config = {
         },
         background: "#FDFBF7",
         foreground: "#1C1C1C",
-        muted: "#6B5E52",
+        muted: "#5A4E44",
         border: "#E7DDD3",
         surface: "#FFFFFF",
       },

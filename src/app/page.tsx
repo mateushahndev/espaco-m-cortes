@@ -1,6 +1,7 @@
 // Forçando redeploy — build cache da Vercel
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { GaleriaCarrossel } from "@/components/home/GaleriaCarrossel"
@@ -86,7 +87,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#FDFBF7] to-[#F5EDE4] border-b border-border overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#FDFBF7] to-[#F5EDE4] border-b border-border overflow-hidden min-h-[500px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             
@@ -119,15 +120,15 @@ export default function Home() {
             </div>
 
             {/* Ilustração — ocupa 2/5, alinhada à direita */}
+            {/* Ilustração — ocupa 2/5, alinhada à direita */}
             <div className="hidden lg:flex lg:col-span-2 justify-end items-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/home/hero-moca.png"
+              <Image
+                src="/home/hero-moca.webp"
                 alt="Ilustração de mulher com cabelos esvoaçantes representando beleza e transformação"
                 width={600}
                 height={600}
+                priority
                 className="w-[120%] max-w-[550px] h-auto -mr-8"
-                loading="eager"
               />
             </div>
 

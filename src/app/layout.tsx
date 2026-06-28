@@ -1,8 +1,14 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
-import { ChatWidget } from "@/components/chat/ChatWidget"
+import { playfair, inter } from "./fonts"
+
+const ChatWidget = dynamic(
+  () => import("@/components/chat/ChatWidget").then((mod) => ({ default: mod.ChatWidget })),
+  { ssr: false }
+)
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://espacomcortes.vercel.app"),
@@ -40,7 +46,7 @@ export const metadata: Metadata = {
       "Salão de beleza premium em Avenida da Prata. Corte, química, manicure, cílios, maquiagem e muito mais.",
     images: [
       {
-        url: "/home/hero-moca.png",
+        url: "/home/hero-moca.webp",
         width: 1200,
         height: 630,
         alt: "Espaço M Cortes - Salão de Beleza",
@@ -52,7 +58,7 @@ export const metadata: Metadata = {
     title: "Espaço M Cortes | Salão de Beleza em Avenida da Prata",
     description:
       "Salão de beleza premium em Avenida da Prata. Agende pelo WhatsApp.",
-    images: ["/home/hero-moca.png"],
+    images: ["/home/hero-moca.webp"],
   },
   icons: {
     icon: [
@@ -73,9 +79,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "seu-código-google-search-console", // Troque quando tiver
-  },
   alternates: {
     canonical: "https://espacomcortes.vercel.app",
   },
@@ -89,7 +92,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* JSON-LD LocalBusiness + FAQPage */}
+        <link rel="preload" as="image" href="/home/hero-moca.webp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -99,7 +102,7 @@ export default function RootLayout({
               name: "Espaço M Cortes",
               description:
                 "Salão de beleza premium em Avenida da Prata. Corte feminino, química capilar, manicure, alongamento de unhas, cílios, maquiagem e spa dos pés.",
-              image: "https://espacomcortes.vercel.app/home/hero-moca.png",
+              image: "https://espacomcortes.vercel.app/home/hero-moca.webp",
               url: "https://espacomcortes.vercel.app",
               telephone: "+55-11-99999-9999",
               email: "contato@espacomcortes.com.br",
@@ -119,13 +122,7 @@ export default function RootLayout({
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                  ],
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                   opens: "09:00",
                   closes: "19:00",
                 },
@@ -146,55 +143,37 @@ export default function RootLayout({
                 itemListElement: [
                   {
                     "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Design de Corte Feminino",
-                    },
+                    itemOffered: { "@type": "Service", name: "Design de Corte Feminino" },
                     price: "100.00",
                     priceCurrency: "BRL",
                   },
                   {
                     "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Escova Clássica",
-                    },
+                    itemOffered: { "@type": "Service", name: "Escova Clássica" },
                     price: "60.00",
                     priceCurrency: "BRL",
                   },
                   {
                     "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Manicure Tradicional",
-                    },
+                    itemOffered: { "@type": "Service", name: "Manicure Tradicional" },
                     price: "35.00",
                     priceCurrency: "BRL",
                   },
                   {
                     "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Mechas/Luzes",
-                    },
+                    itemOffered: { "@type": "Service", name: "Mechas/Luzes" },
                     price: "250.00",
                     priceCurrency: "BRL",
                   },
                   {
                     "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Extensão de Cílios",
-                    },
+                    itemOffered: { "@type": "Service", name: "Extensão de Cílios" },
                     price: "150.00",
                     priceCurrency: "BRL",
                   },
                   {
                     "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Maquiagem Completa",
-                    },
+                    itemOffered: { "@type": "Service", name: "Maquiagem Completa" },
                     price: "200.00",
                     priceCurrency: "BRL",
                   },
@@ -209,7 +188,6 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* JSON-LD FAQPage */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -270,7 +248,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className={`${playfair.variable} ${inter.variable} min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

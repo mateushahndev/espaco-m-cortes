@@ -37,3 +37,4 @@ next-env.d.ts
 
 # my tools
 compress-images.js
+compress-hero.js

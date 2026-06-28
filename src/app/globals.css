@@ -39,3 +39,10 @@
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+@media (max-width: 640px) {
+  .animate-scroll img {
+    content-visibility: auto;
+    contain-intrinsic-size: 280px 200px;
+  }
+}

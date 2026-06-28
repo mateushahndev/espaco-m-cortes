@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
 interface Props {
   imagens: {
     src: string

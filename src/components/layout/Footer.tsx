@@ -116,7 +116,7 @@ export function Footer() {
             <p className="text-xs text-muted">
               © {new Date().getFullYear()} Espaço M Cortes. Todos os direitos reservados.
             </p>
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               {footerLinks.legal.map((link) => (
                 <Link
                   key={link.href}
@@ -126,6 +126,17 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <span className="text-xs text-muted">
+                Desenvolvido por{" "}
+                <a
+                  href="https://www.mateushahn.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-primary transition-colors"
+                >
+                  Mateus Hahn
+                </a>
+              </span>
             </div>
           </div>
         </div>

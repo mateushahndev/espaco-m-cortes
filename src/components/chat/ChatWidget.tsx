@@ -17,34 +17,8 @@ export function ChatWidget() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
-  const [keyboardHeight, setKeyboardHeight] = useState(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
-
-  // Detecta altura do teclado via visualViewport
-  useEffect(() => {
-    const handleResize = () => {
-      const visualViewport = window.visualViewport
-      if (visualViewport) {
-        const windowHeight = window.innerHeight
-        const viewportHeight = visualViewport.height
-        const diff = windowHeight - viewportHeight
-        setKeyboardHeight(diff > 0 ? diff : 0)
-      }
-    }
-
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', handleResize)
-      window.visualViewport.addEventListener('scroll', handleResize)
-    }
-
-    return () => {
-      if (window.visualViewport) {
-        window.visualViewport.removeEventListener('resize', handleResize)
-        window.visualViewport.removeEventListener('scroll', handleResize)
-      }
-    }
-  }, [])
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -68,13 +42,12 @@ export function ChatWidget() {
     })
     setTimeout(() => {
       inputRef.current?.focus()
-    }, 300)
+    }, 400)
   }
 
   const handleClose = () => {
     setIsAnimating(false)
     document.body.style.overflow = ''
-    setKeyboardHeight(0)
     setTimeout(() => setIsOpen(false), 250)
   }
 
@@ -183,10 +156,6 @@ export function ChatWidget() {
     sendMessage(input)
   }
 
-  // Calcula a altura do chat
-  const maxHeight = Math.min(window.innerHeight * 0.85, 600)
-  const bottomOffset = Math.max(keyboardHeight, 0)
-
   return (
     <>
       {/* Botão flutuante */}
@@ -210,15 +179,13 @@ export function ChatWidget() {
 
           {/* Janela do chat */}
           <div
-            className={`fixed bottom-0 left-0 right-0 z-50 flex w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:w-[380px] md:rounded-2xl ${
+            className={`fixed bottom-0 left-0 right-0 z-50 flex h-[90vh] max-h-[500px] w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:h-[500px] md:w-[380px] md:max-h-none md:rounded-2xl ${
               isAnimating
                 ? 'translate-y-0 scale-100 opacity-100'
                 : 'translate-y-8 scale-95 opacity-0'
             }`}
             style={{
-              height: maxHeight,
-              maxHeight: 600,
-              bottom: bottomOffset > 0 ? bottomOffset : 0,
+              paddingBottom: 'env(safe-area-inset-bottom)',
             }}
           >
             {/* Cabeçalho */}
@@ -265,36 +232,34 @@ export function ChatWidget() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input + Rodapé */}
-            <div className="flex-shrink-0">
-              <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border bg-surface px-4 py-3">
-                <input
-                  ref={inputRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Digite sua mensagem..."
-                  className="flex-1 bg-transparent text-sm text-foreground placeholder-muted focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  disabled={isLoading || !input.trim()}
-                  className="rounded-xl bg-primary p-2.5 text-white transition-colors hover:bg-primary-light disabled:opacity-50"
-                >
-                  <Send className="h-4 w-4" />
-                </button>
-              </form>
+            {/* Input */}
+            <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border bg-surface p-4 flex-shrink-0">
+              <input
+                ref={inputRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Digite sua mensagem..."
+                className="flex-1 bg-transparent text-sm text-foreground placeholder-muted focus:outline-none"
+              />
+              <button
+                type="submit"
+                disabled={isLoading || !input.trim()}
+                className="rounded-xl bg-primary p-2.5 text-white transition-colors hover:bg-primary-light disabled:opacity-50"
+              >
+                <Send className="h-4 w-4" />
+              </button>
+            </form>
 
-              {/* Rodapé WhatsApp */}
-              <div className="rounded-b-2xl border-t border-border bg-surface px-4 py-2.5 text-center">
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMERO}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-muted hover:text-primary transition-colors"
-                >
-                  Falar no WhatsApp →
-                </a>
-              </div>
+            {/* Rodapé WhatsApp */}
+            <div className="rounded-b-2xl border-t border-border bg-surface px-4 py-2.5 text-center flex-shrink-0">
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMERO}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-muted hover:text-primary transition-colors"
+              >
+                Falar no WhatsApp →
+              </a>
             </div>
           </div>
         </>

@@ -32,7 +32,7 @@ export function ChatWidget() {
       return 500
     }
 
-    return Math.min(availableHeight * 0.85, 500)
+    return Math.min(availableHeight * 0.95, 600)
   }
 
   useEffect(() => {
@@ -228,7 +228,7 @@ export function ChatWidget() {
             }`}
             style={{
               height: chatHeight,
-              maxHeight: 500,
+              maxHeight: 600,
               paddingBottom: 'env(safe-area-inset-bottom)',
             }}
           >

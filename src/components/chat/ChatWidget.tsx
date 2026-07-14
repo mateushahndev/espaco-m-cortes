@@ -17,8 +17,47 @@ export function ChatWidget() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [chatHeight, setChatHeight] = useState(500)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  // Calcula a altura disponível na tela
+  const calculateChatHeight = () => {
+    if (typeof window === 'undefined') return 500
+
+    const visualViewport = window.visualViewport
+    const availableHeight = visualViewport ? visualViewport.height : window.innerHeight
+
+    if (window.innerWidth >= 768) {
+      return 500
+    }
+
+    return Math.min(availableHeight * 0.85, 500)
+  }
+
+  useEffect(() => {
+    const updateHeight = () => {
+      setChatHeight(calculateChatHeight())
+    }
+
+    updateHeight()
+
+    const visualViewport = window.visualViewport
+    if (visualViewport) {
+      visualViewport.addEventListener('resize', updateHeight)
+      visualViewport.addEventListener('scroll', updateHeight)
+    }
+
+    window.addEventListener('resize', updateHeight)
+
+    return () => {
+      if (visualViewport) {
+        visualViewport.removeEventListener('resize', updateHeight)
+        visualViewport.removeEventListener('scroll', updateHeight)
+      }
+      window.removeEventListener('resize', updateHeight)
+    }
+  }, [])
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -37,6 +76,9 @@ export function ChatWidget() {
   const handleOpen = () => {
     setIsOpen(true)
     document.body.style.overflow = 'hidden'
+    setTimeout(() => {
+      setChatHeight(calculateChatHeight())
+    }, 50)
     requestAnimationFrame(() => {
       setIsAnimating(true)
     })
@@ -179,12 +221,14 @@ export function ChatWidget() {
 
           {/* Janela do chat */}
           <div
-            className={`fixed bottom-0 left-0 right-0 z-50 flex h-[90vh] max-h-[500px] w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:h-[500px] md:w-[380px] md:max-h-none md:rounded-2xl ${
+            className={`fixed bottom-0 left-0 right-0 z-50 flex w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:w-[380px] md:rounded-2xl ${
               isAnimating
                 ? 'translate-y-0 scale-100 opacity-100'
                 : 'translate-y-8 scale-95 opacity-0'
             }`}
             style={{
+              height: chatHeight,
+              maxHeight: 500,
               paddingBottom: 'env(safe-area-inset-bottom)',
             }}
           >

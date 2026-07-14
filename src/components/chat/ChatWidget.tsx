@@ -17,24 +17,32 @@ export function ChatWidget() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
-  const [windowHeight, setWindowHeight] = useState(
-    typeof window !== 'undefined' ? window.innerHeight : 800
-  )
+  const [keyboardHeight, setKeyboardHeight] = useState(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Detecta mudança de altura da janela (teclado mobile)
+  // Detecta altura do teclado via visualViewport
   useEffect(() => {
     const handleResize = () => {
-      setWindowHeight(window.innerHeight)
+      const visualViewport = window.visualViewport
+      if (visualViewport) {
+        const windowHeight = window.innerHeight
+        const viewportHeight = visualViewport.height
+        const diff = windowHeight - viewportHeight
+        setKeyboardHeight(diff > 0 ? diff : 0)
+      }
     }
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('focusin', handleResize)
-    window.addEventListener('focusout', handleResize)
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleResize)
+      window.visualViewport.addEventListener('scroll', handleResize)
+    }
+
     return () => {
-      window.removeEventListener('resize', handleResize)
-      window.removeEventListener('focusin', handleResize)
-      window.removeEventListener('focusout', handleResize)
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleResize)
+        window.visualViewport.removeEventListener('scroll', handleResize)
+      }
     }
   }, [])
 
@@ -60,12 +68,13 @@ export function ChatWidget() {
     })
     setTimeout(() => {
       inputRef.current?.focus()
-    }, 500)
+    }, 300)
   }
 
   const handleClose = () => {
     setIsAnimating(false)
     document.body.style.overflow = ''
+    setKeyboardHeight(0)
     setTimeout(() => setIsOpen(false), 250)
   }
 
@@ -174,8 +183,9 @@ export function ChatWidget() {
     sendMessage(input)
   }
 
-  // Calcula altura do chat baseado na janela
-  const chatHeight = Math.min(windowHeight * 0.85, 600)
+  // Calcula a altura do chat
+  const maxHeight = Math.min(window.innerHeight * 0.85, 600)
+  const bottomOffset = Math.max(keyboardHeight, 0)
 
   return (
     <>
@@ -198,7 +208,7 @@ export function ChatWidget() {
             onClick={handleClose}
           />
 
-          {/* Janela do chat com altura dinâmica */}
+          {/* Janela do chat */}
           <div
             className={`fixed bottom-0 left-0 right-0 z-50 flex w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:w-[380px] md:rounded-2xl ${
               isAnimating
@@ -206,8 +216,9 @@ export function ChatWidget() {
                 : 'translate-y-8 scale-95 opacity-0'
             }`}
             style={{
-              height: chatHeight,
-              maxHeight: '600px',
+              height: maxHeight,
+              maxHeight: 600,
+              bottom: bottomOffset > 0 ? bottomOffset : 0,
             }}
           >
             {/* Cabeçalho */}
@@ -256,7 +267,7 @@ export function ChatWidget() {
 
             {/* Input + Rodapé */}
             <div className="flex-shrink-0">
-              <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border bg-surface p-4">
+              <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border bg-surface px-4 py-3">
                 <input
                   ref={inputRef}
                   value={input}

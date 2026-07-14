@@ -9,7 +9,7 @@ type Message = {
   content: string
 }
 
-const WHATSAPP_NUMERO = "SEU_NUMERO" // Substituir pelo número real
+const WHATSAPP_NUMERO = "5511999999999"
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,6 +18,7 @@ export function ChatWidget() {
   const [isLoading, setIsLoading] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -39,6 +40,10 @@ export function ChatWidget() {
     requestAnimationFrame(() => {
       setIsAnimating(true)
     })
+    // Foca no input após abrir com delay para mobile
+    setTimeout(() => {
+      inputRef.current?.focus()
+    }, 500)
   }
 
   const handleClose = () => {
@@ -154,7 +159,7 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Botão flutuante — cor primária do Espaço M Cortes */}
+      {/* Botão flutuante */}
       <button
         onClick={() => (isOpen ? handleClose() : handleOpen())}
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-lg transition-all hover:scale-105 hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-primary md:h-16 md:w-16"
@@ -173,16 +178,16 @@ export function ChatWidget() {
             onClick={handleClose}
           />
 
-          {/* Janela do chat */}
+          {/* Janela do chat — usa dvh no mobile para não cortar */}
           <div
-            className={`fixed bottom-0 left-0 right-0 z-50 flex h-[90vh] max-h-[500px] w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:h-[500px] md:w-[380px] md:max-h-none md:rounded-2xl ${
+            className={`fixed bottom-0 left-0 right-0 z-50 flex h-[85dvh] max-h-[500px] w-full flex-col rounded-t-2xl border border-border bg-surface shadow-xl transition-all duration-300 ease-out md:bottom-24 md:right-6 md:left-auto md:h-[500px] md:w-[380px] md:max-h-none md:rounded-2xl ${
               isAnimating
                 ? 'translate-y-0 scale-100 opacity-100'
                 : 'translate-y-8 scale-95 opacity-0'
             }`}
           >
             {/* Cabeçalho */}
-            <div className="flex items-center justify-between rounded-t-2xl border-b border-border bg-surface px-4 py-3">
+            <div className="flex items-center justify-between rounded-t-2xl border-b border-border bg-surface px-4 py-3 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-white">
                   <Bot className="h-4 w-4" />
@@ -226,8 +231,9 @@ export function ChatWidget() {
             </div>
 
             {/* Input */}
-            <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border bg-surface p-4">
+            <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t border-border bg-surface p-4 flex-shrink-0">
               <input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Digite sua mensagem..."
@@ -243,7 +249,7 @@ export function ChatWidget() {
             </form>
 
             {/* Rodapé WhatsApp */}
-            <div className="rounded-b-2xl border-t border-border bg-surface px-4 py-2.5 text-center">
+            <div className="rounded-b-2xl border-t border-border bg-surface px-4 py-2.5 text-center flex-shrink-0">
               <a
                 href={`https://wa.me/${WHATSAPP_NUMERO}`}
                 target="_blank"
